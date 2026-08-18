@@ -83,3 +83,12 @@ with models for:
 
 Each app/package expects its own .env values for DB, auth, 
 and integrations.
+
+## Status (checkup 2026-08-18)
+> Revisado na campanha de repo-checkup. Relatorio completo: `~/repo-checkup/reports/agent-playground.md` (local do mantenedor, nao no repo).
+- **Build/Install**: PASS — `npm install` RC=0 e `npm ci` RC=0 (lockfile gerado/commitado); `npm run lint` RC=0 apos adicionar eslint (era quebrado).
+- **Smoke test**: N/A (scripts de teste sao placeholders `echo "No ... tests configured yet"`, RC 0; sem smoke de app).
+- **Para rodar de ponta-a-ponta precisa de**: nenhum servico externo citado no relatorio.
+- **Inconsistencias conhecidas (README vs codigo)**: nenhuma.
+- **Seguranca**: 2 high em producao (`npm audit --omit=dev`: `next` + `postcss`); fix via `npm audit fix --force` -> `next@16.3.1` (BREAKING) -> NAO aplicado (decisao humana). Sem vulns altas remediadas automaticamente.
+- **Estado resumido**: install/build verde (`npm ci`) e lint verde; sem testes reais (placeholders); 2 high pendentes (upgrade breaking do Next).
